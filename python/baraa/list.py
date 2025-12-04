@@ -56,4 +56,34 @@ lista.count(5)
 # %%
 print(9 in lista)
 print(9 not in lista)
+#%% sort / reverse cambia la lista original
+letras = ['z', 'b', 'g', 'a']
+print(letras)
+letras.sort(reverse=True)
+print(letras)
+letras.sort()
+print(letras)
+letras.reverse()
+print(letras)
 # %%
+matrix = [
+    ['d', 't', 'a'],
+    ['h', 'a', 'b'],
+    ['p', 'x', 'b']
+]
+print(matrix)
+matrix[1].sort()
+print(matrix)
+# %% sorted reversed no cambia la original
+letras = ['h', 'z', 'b', 'g', 'a']
+
+nueva_letras = sorted(letras)
+print(nueva_letras)
+
+nueva_letras = sorted(letras, reverse=True)
+print(nueva_letras)
+
+nueva_letras = list(reversed(letras))
+print(nueva_letras)
+print(letras)
+
