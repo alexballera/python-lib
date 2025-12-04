@@ -4,6 +4,9 @@
 @author: Alex Ballera
 """
 #%%
+import copy
+
+#%%
 vacia = []
 print(vacia)
 #%%
@@ -105,10 +108,7 @@ print(letras_copy)
 matrix_copy = matrix.copy()
 matrix[1].append('z')
 print(matrix)
-print(matrix_copy)
-
 # %% copy.deepcopy resuelve las referencias en los niveles inferiores
-import copy
 # matrix[1].pop()
 matrix_copy = copy.deepcopy(matrix)
 matrix[1].append('z')
@@ -132,3 +132,72 @@ copy3 = copy.deepcopy(original)
 print(f'Misma lista? {copy3 is original}')
 print(f'Misma referencia? {copy3[0] is original[0]}')
 # %%
+letras = ['a', 'b', 'c']
+numeros = [1, 2, 3]
+#%%
+comb = letras + numeros
+comb # type: ignore
+# %%
+numeros.extend(letras) # type: ignore
+print(numeros)
+print(letras)
+# %%
+letras = ['a', 'b', 'c']
+numeros = [1, 2, 3, 4]
+
+comb = list(zip(letras, numeros, 'hola'))
+comb # type: ignore
+#%% Iterador for, while / Iterable: listas, dicc, conjuntos
+arr = []
+for l in 'abracadabra':
+    arr.append(l)
+
+print(arr)  
+palabra = ''
+for l in arr:
+    palabra += l
+
+print(palabra)
+
+#%%
+pal = ''
+for letra in (list(map(str.upper, palabra))):
+    pal += letra
+
+pal  # pyright: ignore[reportUnusedExpression]
+
+#%% Filtros
+letras = ['a', '', 'b', None, 'c', '23']
+print(list(filter(None, letras))) # filtra quitando los None (falsos)
+print(list(filter(bool, letras))) # filtra quitando los falsos
+
+letras = ['a', '45', 'b', 'c', '23']
+print(list(filter(str.isalpha, letras))) # se define cualquier función para filtrar
+
+#%% Lambda
+multiplicar = lambda x: x*2  # noqa: E731
+print(multiplicar(3))
+
+suma = lambda x, y: x + y  # noqa: E731
+print(suma(3,7))
+# %%
+precios = [12, 234, 43, 456, 67]
+print(list(filter(lambda x: x > 100, precios)))
+
+#%% Listas por comprensión
+# multiplicar * 2 los números menor a 50
+precios = [1, 234, 43, 456, 49]
+
+precios_mod = [p * 2 for p in list(filter(lambda p: p < 50, precios))]
+print(precios_mod)
+
+precios_mod2 = [p * 2 for p in precios if p < 50]
+print(precios_mod2)
+
+precios_new = []
+for p in precios:
+    while p < 1000:
+        p *=2
+    precios_new.append(p)
+
+print(precios_new)
