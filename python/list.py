@@ -90,7 +90,8 @@ nueva_letras = list(reversed(letras))
 print(nueva_letras)
 print(letras)
 
-#%% Asignación: comparten la referencia en la memoria, un cambio en una variable se observa en la otra variable
+#%% ===============================================================================
+# Asignación: comparten la referencia en la memoria, un cambio en una variable se observa en la otra variable
 letras_copy = letras
 #%%
 letras.append('y')
@@ -131,7 +132,8 @@ print(f'Misma referencia? {copy2[0] is original[0]}')
 copy3 = copy.deepcopy(original)
 print(f'Misma lista? {copy3 is original}')
 print(f'Misma referencia? {copy3[0] is original[0]}')
-# %%
+
+#%% ===============================================================================
 letras = ['a', 'b', 'c']
 numeros = [1, 2, 3]
 #%%
@@ -166,7 +168,8 @@ for letra in (list(map(str.upper, palabra))):
 
 pal  # pyright: ignore[reportUnusedExpression]
 
-#%% Filtros
+#%% ===============================================================================
+# Filtros
 letras = ['a', '', 'b', None, 'c', '23']
 print(list(filter(None, letras))) # filtra quitando los None (falsos)
 print(list(filter(bool, letras))) # filtra quitando los falsos
@@ -174,7 +177,8 @@ print(list(filter(bool, letras))) # filtra quitando los falsos
 letras = ['a', '45', 'b', 'c', '23']
 print(list(filter(str.isalpha, letras))) # se define cualquier función para filtrar
 
-#%% Lambda
+#%% ===============================================================================
+# Lambda
 multiplicar = lambda x: x*2  # noqa: E731
 print(multiplicar(3))
 
@@ -202,3 +206,82 @@ for p in precios:
 
 print(precios_new)
 print(list(enumerate(precios_new)))
+#%% ===============================================================================
+# Sets, Conjuntos
+a = {10, 20, 30, 40}
+a.add(50)
+print(f'add {a}')
+
+a.update('Hola')
+print(f'update {a}')
+
+a.update({1,2,3})
+print(f'update {a}')
+
+a |= {100, 110}
+print(f'|= {a}')
+#%%
+a.remove(100) if 100 in a else '' # si no existe arroja error
+print(f'remove {a}')
+
+a.pop() if len(a) else '' # Elimina el primer elemento si está vacío arroja error
+print(f'pop {a}')
+
+a.discard(10) if 10 in a else '' # si no existe no arroja error
+print(f'discard {a}')
+#%% Operaciones Con Conjuntos
+a = {10, 20, 30, 40}
+b = {30, 40, 50, 60}
+print(f'a = {a}')
+print(f'b = {b}')
+
+union = a.union(b)
+print(f'\nunion {union}')
+
+difference = a.difference(b)
+print(f'\ndiferencia {difference}')
+
+# difference_update: Misma operación que difference
+# solo que modifica al minuendo 'a' y retorna None
+a2 = a.copy()
+difference_update = a2.difference_update(b)
+print(f'\ndifference_update {difference_update} - {a2}') 
+
+intersection = a.intersection(b)
+print(f'\nintersection {intersection}')
+
+# intersection_update: Misma operación que intersection
+# solo que modifica al conjunto 'a' y retorna None
+a2 = a.copy()
+intersection_update = a2.intersection_update(b)
+print(f'\nintersection_update {intersection_update} - {a2}') 
+
+symmetric_difference = a.symmetric_difference(b)
+print(f'\nsymmetric_difference {symmetric_difference}')
+
+# symmetric_difference_update: Misma operación que symmetric_difference
+# solo que modifica al conjunto 'a' y retorna None
+a2 = a.copy()
+symmetric_difference_update = a2.symmetric_difference_update(b)
+print(f'\nsymmetric_difference_update {symmetric_difference_update} - {a2}') 
+
+#%% ===============================================================================
+a = {10, 20, 30, 40}
+b = {30, 40, 50, 60}
+c = {30, 40}
+d = {70, 80}
+#%% Inclusión
+print(f'¿a está incluido o es subconjunto de b?: {a.issubset(b)}')
+print(f'¿c está incluido o es subconjunto de a?: {c.issubset(a)}')
+print(f'¿c está incluido o es subconjunto de b?: {c.issubset(b)}')
+
+print(f'\n¿c y d son conjuntos disjuntos?: {c.isdisjoint(d)}')
+print(f'¿d y a son conjuntos disjuntos?: {d.isdisjoint(a)}')
+print(f'¿c y b son conjuntos disjuntos?: {c.isdisjoint(b)}')
+
+print(f'\n¿a es súper conjunto de c?: {a.issuperset(c)}')
+print(f'¿a es súper conjunto de d?: {a.issuperset(d)}')
+
+
+
+# %%
