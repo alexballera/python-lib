@@ -87,3 +87,48 @@ nueva_letras = list(reversed(letras))
 print(nueva_letras)
 print(letras)
 
+#%% Asignación: comparten la referencia en la memoria, un cambio en una variable se observa en la otra variable
+letras_copy = letras
+#%%
+letras.append('y')
+#%%
+print(letras)
+print(letras_copy)
+
+#%% Copy: copia la variable y cada una apunta a un espacio diferente de la memoria y tienen diferentes referencias
+letras_copy = letras.copy()
+letras.append('y')
+print(letras)
+print(letras_copy)
+
+# %% Copy: los niveles inferiores comparten la referencia en la memoria
+matrix_copy = matrix.copy()
+matrix[1].append('z')
+print(matrix)
+print(matrix_copy)
+
+# %% copy.deepcopy resuelve las referencias en los niveles inferiores
+import copy
+# matrix[1].pop()
+matrix_copy = copy.deepcopy(matrix)
+matrix[1].append('z')
+print(matrix)
+print(matrix_copy)
+#%% asignacion
+original = [
+    ['a', 'b'],
+    ['c', 'd']
+]
+copy1 = original
+print(f'Misma lista? {copy1 is original}')
+
+#%% Shallow copy
+copy2 = original.copy()
+print(f'Misma lista? {copy2 is original}')
+print(f'Misma referencia? {copy2[0] is original[0]}')
+
+#%% Deep copy
+copy3 = copy.deepcopy(original)
+print(f'Misma lista? {copy3 is original}')
+print(f'Misma referencia? {copy3[0] is original[0]}')
+# %%
