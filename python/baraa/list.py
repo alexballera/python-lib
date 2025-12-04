@@ -201,3 +201,4 @@ for p in precios:
     precios_new.append(p)
 
 print(precios_new)
+print(list(enumerate(precios_new)))
