@@ -123,3 +123,47 @@ estudiantes.describe(include=['number'])
 #%%
 estudiantes.describe(include=['object'])
 #%%
+estudiantes.loc[:,'Num Control'] = estudiantes.loc[:,'Num Control'].str.upper()
+estudiantes.head()
+#%%
+estudiantes.loc[:,'Carrera'] = estudiantes.loc[:,'Carrera'].str.title()
+estudiantes.head()
+#%%
+estudiantes['Año'] = estudiantes['Inscripción'].dt.year # type: ignore
+estudiantes.head()
+#%%
+estudiantes['Año/mes'] = estudiantes['Inscripción'].dt.strftime('%Y/%m')  # type: ignore
+estudiantes.head()
+#%% Licenciados
+licenciados = estudiantes[estudiantes.loc[:,'Carrera'].str.contains('Lic.')]
+licenciados.head()
+#%% Ingenieros
+ingenieros = estudiantes[estudiantes.loc[:,'Carrera'].str.startswith('Ing.')]
+ingenieros.head()
+#%%
+grupo = estudiantes.groupby('Carrera')['Edad'].mean()
+grupo
+#%%
+grupo2 = estudiantes.groupby('Carrera')[['Edad', 'Altura', 'Peso']].agg(['mean', 'min', 'max'])
+print(grupo2)
+#%%
+grupo2 = estudiantes.groupby('Carrera')[['Edad']].describe()
+print(grupo2)
+#%%
+lic_ano = licenciados.groupby('Año').size()
+lic_ano
+#%%
+import matplotlib.pyplot as plt
+#%%
+lic_ano.plot(kind='bar')
+plt.tight_layout()
+plt.title('Licenciados por año')
+plt.show()
+#%% Pivot
+pivot = licenciados.pivot_table(index=['Año'], columns=['Carrera'], values='Edad', aggfunc='count', fill_value=0)
+print(pivot)
+# %%
+pivot.plot(kind='bar')
+plt.tight_layout()
+plt.title('Carreras por año')
+plt.show()
