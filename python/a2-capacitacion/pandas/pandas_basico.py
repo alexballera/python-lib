@@ -80,4 +80,46 @@ filtrado = amigos[condicion]
 print(f'Filtrado: \n {filtrado}')
 print(f'\nDescribe: \n {filtrado.describe()}')
 print(f'\n Edad máxima: {filtrado['edad'].max()}')
+#%% creamos nuevo df amigos desde archivo excel
+amigos = pd.read_excel('./amigos.xlsx', index_col='Id')
+amigos
+#%%
+amigos.describe()
+#%%
+amigos.info()
+#%%
+print(f'¿Todos los valores son válidos? {'Sí' if bool(amigos.all().all()) else 'No'}')
+#%% Amigos con edad < 21 años
+edad = 21
+condicion = amigos['Edad'] < edad
+
+filtro = amigos[condicion]
+filtro
+# %% creamos df universidad desde archivo excel
+universidad = pd.read_excel('./universidad.xlsx', index_col='Id Persona', parse_dates=['Inscripción'])
+universidad
+#%%
+universidad.head()
+#%%
+universidad.describe(include=['object'])
+# universidad.value_counts()
+#%%
+universidad.describe(include=['number'])
+#%%
+universidad.info()
+#%%
+print(f'¿Todos los datos son válidos? {'Sí' if (universidad != pd.Timestamp(0)).all().all() else 'No'}')
+#%% Trabajamos con Ambos DF
+estudiantes = amigos.merge(universidad, left_on='Id', right_on='Id Persona')
+estudiantes
+#%%
+estudiantes.head()
+#%%
+estudiantes.tail()
+#%%
+estudiantes.info()
+#%%
+estudiantes.describe(include=['number'])
+#%%
+estudiantes.describe(include=['object'])
 #%%
