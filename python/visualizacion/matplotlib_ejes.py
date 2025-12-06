@@ -219,7 +219,7 @@ axs[1].set_title('Escala Logarítmica', fontsize=13, fontweight='bold')
 axs[1].grid(True, alpha=0.3, which='both')  # Cuadrícula en mayores y menores
 
 fig.suptitle('Comparación: Escala Lineal vs Logarítmica', 
-             fontsize=16, fontweight='bold')
+             fontsize=16, fontweight='bold', y=0.98)
 
 plt.show()
 
@@ -334,7 +334,7 @@ axs[1, 1].set_title('Rotación + Formato Monetario', fontweight='bold')
 axs[1, 1].grid(True, axis='y', alpha=0.3)
 
 fig.suptitle('Técnicas de Configuración de Ejes - Guía Completa',
-             fontsize=16, fontweight='bold')
+             fontsize=16, fontweight='bold', y=0.98)
 
 plt.show()
 # %%

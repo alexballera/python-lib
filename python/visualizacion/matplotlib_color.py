@@ -325,7 +325,7 @@ axs[1, 1].spines['right'].set_visible(False)
 
 # Título general
 fig.suptitle('Diferentes Formatos de Especificación de Colores', 
-             fontsize=16, fontweight='bold', y=0.995)
+             fontsize=16, fontweight='bold', y=0.98)
 
 plt.show()
 
@@ -382,7 +382,7 @@ axs[1, 1].set_ylabel('Y')
 
 # Título general
 fig.suptitle('Comparación de Diferentes Tipos de Colormaps', 
-             fontsize=16, fontweight='bold', y=0.995)
+             fontsize=16, fontweight='bold', y=0.98)
 
 plt.show()
 
@@ -426,7 +426,7 @@ axs[1, 1].set_ylabel('Y')
 
 # Título general
 fig.suptitle('Métodos de Interpolación con ax.imshow()', 
-             fontsize=16, fontweight='bold', y=0.995)
+             fontsize=16, fontweight='bold', y=0.98)
 
 plt.show()
 
@@ -484,7 +484,7 @@ plt.colorbar(mappable=sc4, ax=axs[1, 1], label='Categoría', ticks=range(8), shr
 
 # Título general
 fig.suptitle('Gráficos Polares con Diferentes Colormaps', 
-             fontsize=16, fontweight='bold', y=0.99)
+             fontsize=16, fontweight='bold', y=0.98)
 
 plt.show()
 

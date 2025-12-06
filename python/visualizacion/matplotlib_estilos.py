@@ -232,7 +232,7 @@ axs[1, 1].legend(loc='upper right')
 
 # Título general
 fig.suptitle('Comparación de Estilos de Línea y Personalización de Ejes', 
-             fontsize=16, fontweight='bold', y=0.995)
+             fontsize=16, fontweight='bold', y=0.98)
 
 plt.show()
 

@@ -186,7 +186,7 @@ axes[1, 2].set_title('fillstyle="none"')
 axes[1, 2].grid(True, alpha=0.3)
 
 fig.suptitle('Comparación de Estilos de Relleno (fillstyle)', 
-             fontsize=16, fontweight='bold')
+             fontsize=16, fontweight='bold', y=0.98)
 
 plt.show()
 #%%

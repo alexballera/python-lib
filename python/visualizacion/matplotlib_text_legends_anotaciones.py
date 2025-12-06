@@ -5,6 +5,12 @@ Visualización con Matplotlib - Textos, Anotaciones y Leyendas
 @author: Alex Ballera
 """
 #%%
+# Celda 1: Configuración
+# %matplotlib widget
+import matplotlib.pyplot as plt
+import numpy as np
+
+#%%
 # REFERENCIA RÁPIDA: Textos, Anotaciones y Leyendas
 # https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.text.html
 # https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.annotate.html
@@ -159,12 +165,6 @@ CASOS DE USO COMUNES
     fig.legend(loc='outside upper right', fontsize=10)
 
 '''
-
-#%%
-# Celda 1: Configuración
-# %matplotlib widget
-import matplotlib.pyplot as plt
-import numpy as np
 
 #%% Variables
 layout = 'constrained'
@@ -364,7 +364,7 @@ axs[1, 1].grid(True, alpha=0.3)
 
 # Título general
 fig.suptitle('Textos, Anotaciones y Leyendas - Guía Completa',
-             fontsize=16, fontweight='bold')
+             fontsize=16, fontweight='bold', y=0.98)
 
 plt.show()
 # %%
