@@ -10,20 +10,32 @@ Visualización interactiva con Matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
-#%% pyplot
-# Celda 2: Gráfico interactivo
-x, y = [1,2,3,4], [1,2,4,3]
-plt.plot(x, y)
+#%%
+# ===========================================================================
+# PYPLOT
+# ===========================================================================
+
+#%% Variables
+layout = 'constrained'
+figsize = (10,6)
+X = [1,2,3,4,5,6,7,8]
+Y = [3,4,5,3,2,4,5,7]
+
+plt.plot(X, Y)
 plt.show()
-# %% POO
+# %%
+# ===========================================================================
+# POO
+# ===========================================================================
+
 fig, ax = plt.subplots()
-ax.plot(x, y)
+ax.plot(X, Y)
 plt.show()
 
 # %% Pyplot
 X = np.linspace(0, 2, 100)
 
-plt.figure(figsize=(10, 6), layout='constrained')
+plt.figure(figsize=figsize, layout=layout)
 plt.plot(X, X, label='linear')
 plt.plot(X, X**2, label='quadratic')
 plt.plot(X, X**3, label='cubic')

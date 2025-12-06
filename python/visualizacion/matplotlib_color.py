@@ -203,11 +203,11 @@ import numpy as np
 #%% Variables
 layout = 'constrained'
 figsize = (10,6)
-
-#%% https://matplotlib.org/stable/users/explain/colors/index.html
 X = [1,2,3,4,5,6,7,8]
 Y = [3,4,5,3,2,4,5,7]
 Z = [1,3,2,5,5,7,4,6]
+
+#%% https://matplotlib.org/stable/users/explain/colors/index.html
 
 fig, ax = plt.subplots(figsize=figsize, layout=layout)
 
